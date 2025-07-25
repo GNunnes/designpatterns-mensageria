@@ -1,4 +1,13 @@
 package strategy;
 
-public class SMS {
+import model.Mensagem;
+import singleton.LogService;
+
+public class SMS implements CanalComunicacao {
+
+    @Override
+    public void enviar(Mensagem mensagem) {
+        System.out.println("Enviando por SMS: " + mensagem.getConteudo());
+        LogService.getInstance().registrar("Mensagem enviada por SMS.");
+    }
 }
